@@ -23,7 +23,7 @@ The idea is pretty straightforward: write your diary, encrypt it with a master p
 Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/Maltiiski/Encrypted-Diary.git
 cd encrypted-diary
 ```
 
