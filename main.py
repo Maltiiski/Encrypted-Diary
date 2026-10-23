@@ -22,3 +22,8 @@ def load_key():
         return key
 
 fer = Fernet(load_key())
+
+while True:
+    log = input("New[N] | Encrypt[E] | Decrypt[D] | Delete[X] | Quit[Q] ")
+    
+
