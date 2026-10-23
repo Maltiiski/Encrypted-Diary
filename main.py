@@ -24,6 +24,16 @@ def load_key():
 fer = Fernet(load_key())
 
 while True:
-    log = input("New[N] | Encrypt[E] | Decrypt[D] | Delete[X] | Quit[Q] ")
-    
+    log = input("New[N] | Encrypt[E] | Decrypt[D] | Delete[X] | Quit[Q] ").lower().strip()
+    match log:
+        case 'n':
+
+        case 'e':
+
+        case 'd':
+
+        case 'x':
+
+        case 'q':
+            
 
