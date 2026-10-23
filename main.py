@@ -27,13 +27,14 @@ while True:
     log = input("New[N] | Encrypt[E] | Decrypt[D] | Delete[X] | Quit[Q] ").lower().strip()
     match log:
         case 'n':
-
+            log = input("Title: ")
+            with open(log, "w") as nf:
+                nf.write("")
         case 'e':
-
+            
         case 'd':
 
         case 'x':
 
         case 'q':
-            
-
+            sys.exit()
