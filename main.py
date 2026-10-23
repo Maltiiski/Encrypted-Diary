@@ -28,6 +28,9 @@ fer = Fernet(load_key())
 Encr_f = Path("Encr")
 Encr_f.mkdir(parents=True, exist_ok=True)
 
+Decr_f = Path("Decr")
+Decr_f.mkdir(parents=True, exist_ok=True)
+
 def new_file(folder, title, content):
     counter = 0
     while True:
@@ -44,7 +47,7 @@ while True:
     log = input("New[N] | Encrypt[E] | Decrypt[D] | Delete[X] | Quit[Q] ").lower().strip()
     match log:
         case 'n':
-            log = input("Title: ")
+            log = input("New Title: ")
             safe_log = re.sub(r"[^\w\- ]", "_", log.strip()).strip()
 
             if not safe_log:
@@ -54,7 +57,20 @@ while True:
             file_path = new_file(Encr_f, safe_log, "Your diary starts here...")
             print(f"Created: {file_path}")
         case 'e':
-            pass
+            log = input("File Title: ")
+            safe_log = re.sub(r"[^\w\- ]", "_", log.strip()).strip()
+
+            if not safe_log:
+                print("Invalid title.")
+                continue
+
+            file_path = Decr_f / f"{safe_log}.txt"
+            if not file_path:
+                print("File not found.")
+                continue
+
+            
+            
         case 'd':
             pass
         case 'x':
