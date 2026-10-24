@@ -114,12 +114,24 @@ while True:
             # === Seperator, I couldn't read shi
         case 'x':
             log = input("Encrypted Files[E] | Decrypted Files[D]").lower().strip()
-            if log == "e":
-
-            elif log == "d":
-                
-            else:
+            if log != "e" and log != "d":
                 print("Invalid option.")
+                continue
+
+            safe_log = safe_logging()
+            if not safe_log:
+                continue
+
+            folder = Encr_f if log == "e" else Decr_f
+            file_path = folder / f"{safe_log}.txt"
+            if not file_path:
+                print("File not found.")
+                continue
+
+            file_path.unlink(missing_ok=True)
+            print(f"{safe_log}.txt has been deleted")
+
+            # === Seperator, I couldn't read shi
         case 'q':
             sys.exit()
         case _:
