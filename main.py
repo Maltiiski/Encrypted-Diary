@@ -69,6 +69,7 @@ while True:
                 print("File not found.")
                 continue
 
+            data = file_path.read_text(encoding="utf-8")
             
             
         case 'd':
