@@ -33,6 +33,7 @@ Decr_f.mkdir(parents=True, exist_ok=True)
 
 def new_file(title, content):
     counter = 0
+    print(content)
     while True:
         suffix = "" if counter == 0 else f"_{counter}"
         file_path = Decr_f / f"{title}{suffix}.txt"
@@ -105,7 +106,7 @@ while True:
                 continue
 
             raw_data = file_path.read_bytes()
-            pro_data = fer.decrypt(raw_data)
+            pro_data = fer.decrypt(raw_data).decode("utf-8")
 
             decf_path = new_file(safe_log, pro_data)
             file_path.unlink(missing_ok=True)
