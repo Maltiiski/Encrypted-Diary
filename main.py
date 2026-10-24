@@ -20,7 +20,7 @@ def load_key():
             iterations=600_000,
         )
 
-        key = base64.urlsafe_b64decode(kdf.derive(master_pw))
+        key = base64.urlsafe_b64encode(kdf.derive(master_pw))
         return key
 
 fer = Fernet(load_key())
