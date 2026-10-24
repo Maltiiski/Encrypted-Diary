@@ -43,6 +43,9 @@ def new_file(folder, title, content):
         except FileExistsError:
             counter += 1
 
+def encrypt_file(data):
+    pass
+
 while True:
     log = input("New[N] | Encrypt[E] | Decrypt[D] | Delete[X] | Quit[Q] ").lower().strip()
     match log:
@@ -70,7 +73,7 @@ while True:
                 continue
 
             data = file_path.read_text(encoding="utf-8")
-            
+
             
         case 'd':
             pass
