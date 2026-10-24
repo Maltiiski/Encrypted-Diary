@@ -113,7 +113,13 @@ while True:
 
             # === Seperator, I couldn't read shi
         case 'x':
-            pass
+            log = input("Encrypted Files[E] | Decrypted Files[D]").lower().strip()
+            if log == "e":
+
+            elif log == "d":
+                
+            else:
+                print("Invalid option.")
         case 'q':
             sys.exit()
         case _:
