@@ -43,6 +43,15 @@ def new_file(folder, title, content):
         except FileExistsError:
             counter += 1
 
+def safe_logging():
+    log = input("Title: ")
+    safe_log = re.sub(r"[^\w\- ]", "_", log.strip()).strip()
+
+    if not safe_log:
+        print("Invalid title")
+        return
+    return safe_log
+
 def encrypt_file(data):
     pass
 
@@ -50,21 +59,15 @@ while True:
     log = input("New[N] | Encrypt[E] | Decrypt[D] | Delete[X] | Quit[Q] ").lower().strip()
     match log:
         case 'n':
-            log = input("New Title: ")
-            safe_log = re.sub(r"[^\w\- ]", "_", log.strip()).strip()
-
+            safe_log = safe_logging()
             if not safe_log:
-                print("Invalid title.")
                 continue
 
             file_path = new_file(Encr_f, safe_log, "Your diary starts here...")
             print(f"Created: {file_path}")
         case 'e':
-            log = input("File Title: ")
-            safe_log = re.sub(r"[^\w\- ]", "_", log.strip()).strip()
-
+            safe_log = safe_logging()
             if not safe_log:
-                print("Invalid title.")
                 continue
 
             file_path = Decr_f / f"{safe_log}.txt"
