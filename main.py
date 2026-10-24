@@ -98,8 +98,20 @@ while True:
             safe_log = safe_logging()
             if not safe_log:
                 continue
+            
+            file_path = Encr_f / f"{safe_log}.txt"
+            if not file_path:
+                print("File not found.")
+                continue
 
+            raw_data = file_path.read_bytes()
+            pro_data = fer.decrypt(raw_data)
 
+            decf_path = new_file(safe_log, pro_data)
+            file_path.unlink(missing_ok=True)
+            print(f"{safe_log}.txt has been decrypted.")
+
+            # === Seperator, I couldn't read shi
         case 'x':
             pass
         case 'q':
